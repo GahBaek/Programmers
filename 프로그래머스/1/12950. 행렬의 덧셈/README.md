@@ -50,3 +50,20 @@
       </table>
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+>
+> 
+### 후기
+
+class Solution {
+    public int[][] solution(int[][] arr1, int[][] arr2) {
+        int[][] answer = {};
+        answer = arr1;
+        for(int i=0; i<arr1.length; i++){
+            for(int j=0; j<arr1[0].length; j++){
+                answer[i][j] += arr2[i][j];
+            }
+        }
+        return answer;
+    }
+}
+다른 사람의 풀이를 보니 어차피 같은 배열의 크기니 그냥 answer 에 arr1 을 할당해주면 되는 간단한 문제였다.
