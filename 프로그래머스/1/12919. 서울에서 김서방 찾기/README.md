@@ -45,3 +45,8 @@
       </table>
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+### 후기
+int x = Arrays.asList(seoul).indexOf("Kim");        
+        return "김서방은 "+ x + "에 있다";
+로 라이브러리 사용해도 됨. (근데 공간복잡도는 오히려 안좋음.)
