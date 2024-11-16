@@ -62,3 +62,29 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+public class Solution {
+    public int[] solution(int []arr) {
+        int[] solution = {};
+        int cnt = 0, i = 0;
+        solution = new int[arr.length];
+        solution[cnt++] = arr[0];
+        while(i < arr.length){
+            int key = arr[i];
+            for(int k = i; k< arr.length; k++){
+                if(arr[k] != key){
+                    solution[cnt++] = arr[k];
+                    break;
+                }
+                else{
+                    i++;
+                }
+            }
+        }
+        int[] answer = new int[cnt];
+        for(int k = 0; k< cnt; k++){
+            answer[k] = solution[k];
+        }
+        return answer;
+    }
+}
