@@ -76,3 +76,20 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+```java
+class Solution {
+    public int solution(String t, String p) {
+        int answer = 0;
+        int num = t.length() - (p.length()-1);
+        
+        for (int i = 0; i < num; i++) {
+            String a = t.substring(i, p.length()+i);
+            if( a.compareTo(p) <= 0){
+                answer ++;
+            }
+        }
+        return answer;
+    }
+}
+```
