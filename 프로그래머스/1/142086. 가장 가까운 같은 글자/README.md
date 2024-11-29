@@ -79,3 +79,20 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+```java
+ public static void main(String[] args) {
+        String s = "foobar";
+        int[] answer = new int[s.length()];
+        HashMap<Character,Integer> map = new HashMap<>();
+        for(int i=0; i<s.length();i++){
+            char ch = s.charAt(i);
+            answer[i] = i-map.getOrDefault(ch,i+1);
+            map.put(ch,i);
+        }
+        System.out.println("-------------");
+        for(int i : answer) {
+            System.out.println(i);
+        }
+    }
+```
