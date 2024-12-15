@@ -64,3 +64,11 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+```java
+for(int i=0; i<commands.length; i++){
+            int[] temp = Arrays.copyOfRange(array, commands[i][0]-1, commands[i][1]);
+            Arrays.sort(temp);
+            answer[i] = temp[commands[i][2]-1];
+        }
+```
