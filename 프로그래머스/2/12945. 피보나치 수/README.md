@@ -68,3 +68,20 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+
+
+```java
+// 내 원래 답:
+// 하지만, 성공률이 50% 정도 밖에 되지 않았다. 이에 생각해보니
+// int 의 범위 때문에 일정 수 (100?) 이 넘어가면 이상한 값이 출력되었다.
+int n = 101;
+        int[] f = new int[n+1];
+        f[0] = 0;
+        f[1] = 1;
+        for(int i = 2; i < n+1; i++){
+            f[i] = f[i-1]+f[i-2];
+        }
+        System.out.println(f[n]%1234567);
+// 수학적으로 모듈로 연산의 분배 법칙이 적용되기 때문
+```
