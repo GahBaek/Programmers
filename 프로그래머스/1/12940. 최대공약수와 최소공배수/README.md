@@ -58,3 +58,37 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+
+
+```java
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        int n = 2;
+        int m = 5;
+
+        // 최대공약수(GCD) 계산
+        int gcd = findGCD(n, m);
+
+        // 최소공배수(LCM) 계산
+        int lcm = (n * m) / gcd;
+
+        // 결과 출력
+        System.out.println("최대공약수: " + gcd);
+        System.out.println("최소공배수: " + lcm);
+    }
+
+    // 최대공약수(GCD)를 계산하는 메서드 (유클리드 호제법 사용)
+    private static int findGCD(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+}
+
+```
