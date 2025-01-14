@@ -86,3 +86,10 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+
+```java
+        // 내림차순 정렬
+        List<Integer> counts = new ArrayList<>(map.values());
+        counts.sort(Collections.reverseOrder());
+```
