@@ -92,4 +92,15 @@
         // 내림차순 정렬
         List<Integer> counts = new ArrayList<>(map.values());
         counts.sort(Collections.reverseOrder());
+
+        // total = 귤 개수의 누적
+        // answer = 귤 크기의 누적
+        // 귤 개수가 필요한 k 보다 커지면 반복문 종료
+        for (int count : counts) {
+            total += count;
+            answer++;
+            if (total >= k) {
+                break;
+            }
+        }
 ```
