@@ -92,3 +92,23 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+
+```java
+// goalQueue 없이 사용할 수 있는 방법
+// Queue 를 사용하게 되면 추가 메모리를 사용하게 되어 좋지 않다.
+public String solution(String[] cards1, String[] cards2, String[] goal) {
+    int one = 0, two = 0;
+    for (String target : goal) {
+        if (one < cards1.length && cards1[one].equals(target)) {
+            one++;
+        } else if (two < cards2.length && cards2[two].equals(target)) {
+            two++;
+        } else {
+            return "No";
+        }
+    }
+    return "Yes";
+}
+
+```
