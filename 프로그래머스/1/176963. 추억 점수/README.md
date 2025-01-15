@@ -97,3 +97,35 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+
+```java
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        String[] name = {"may", "kein", "kain", "radi"};
+        int[] yearning = {5, 10, 1, 3};
+        String[][] photo = {{"may"}, {"kein", "deny", "may"}, {"kon", "coni"}};
+
+        HashMap<String, Integer> map = new HashMap<>();
+        for (int i = 0; i < name.length; i++) {
+            map.put(name[i], yearning[i]);
+        }
+
+        int[] answer = new int[photo.length];
+        // answer 베열은 선언 시 0으로 초기화 되므로 반복문을 사용하여 0으로 초기화하는 코드는 불필요하다.
+        for (int i = 0; i < photo.length; i++) {
+            for (String person : photo[i]) {
+                answer[i] += map.getOrDefault(person, 0);
+                // getOrDefault 를 사용하면 null을 검사하는 코드가 불필요해진다.
+            }
+        }
+
+        for (int score : answer) {
+            System.out.println(score);
+        }
+    }
+}
+
+```
