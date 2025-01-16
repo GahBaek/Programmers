@@ -92,3 +92,49 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+
+```java
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        String[] want = {"apple"};
+        int[] number = {10};
+        String[] discount = {"banana", "banana", "banana", "banana", "banana", "banana", "banana", "banana", "banana", "banana"};
+        int answer = 0;
+
+        HashMap<String, Integer> wantCnt = new HashMap<>();
+        for (int i = 0; i < want.length; i++) {
+            wantCnt.put(want[i], number[i]);
+        }
+        // 처음 10개의 discount 값을 넣어 준다.
+        HashMap<String, Integer> discountCnt = new HashMap<>();
+        for (int i = 0; i < 10 && i < discount.length; i++) {
+            discountCnt.put(discount[i], discountCnt.getOrDefault(discount[i], 0) + 1);
+        }
+
+        if (wantCnt.equals(discountCnt)) {
+            answer++;
+        }
+        // discountCnt 에서 1개씩 제거, 1개씩 추가를 해주며 wantCnt와 일치할 때 answer ++; 를 해준다.
+        for (int i = 10; i < discount.length; i++) {
+            String removeItem = discount[i - 10];
+            discountCnt.put(removeItem, discountCnt.get(removeItem) - 1);
+            if (discountCnt.get(removeItem) == 0) {
+                discountCnt.remove(removeItem);
+            }
+
+            String addItem = discount[i];
+            discountCnt.put(addItem, discountCnt.getOrDefault(addItem, 0) + 1);
+
+            if (wantCnt.equals(discountCnt)) {
+                answer++;
+            }
+        }
+        System.out.println(answer);
+    }
+}
+
+```
+사실 하나씩 더하고 빼는 것을 생각해보긴 했지만, clear를 사용하면 편할 것 같아 clear 를 사용했다. 나만 편하면 되는 건 아닌데..
