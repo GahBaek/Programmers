@@ -12,14 +12,10 @@ class Solution {
             }
 
             Integer[] count = type.values().toArray(new Integer[0]);
-            if(type.size() == 1){
-                answer = type.get(clothes[0][1]);
-            }else{
                 for(int i = 0; i < count.length; i++) {
                     answer *= count[i] +1;
                 }
                 answer -= 1;
-            }
         return answer;
     }
 }
