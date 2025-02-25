@@ -64,3 +64,46 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+```java
+// 내 원래 답
+class Main {
+    public static void main(String[] args) {
+        int n = 5;
+
+        int one = 0;
+        int two = 0;
+
+        long answer = 0;
+
+        if(n % 2  == 0){
+            // 짝수인 경우.
+            two = n / 2;
+            answer++;
+        }else{
+            // 홀수인 경우.
+            two = (n-1) / 2;
+            one++;
+            answer += computing(one+two)/(one*two);
+        }
+
+        while(two > 0){
+            two--;
+            one+=2;
+            if(one != 0 && two != 0){
+                answer+=computing(two+one)/(one*two);
+            }else{
+                answer ++;
+            }
+        }
+
+    }
+    private static long computing(int n){
+        int i = 1;
+        for(int k = 1; k <= n; k++){
+            i = i * k;
+        }
+        return i;
+    }
+}
+```
